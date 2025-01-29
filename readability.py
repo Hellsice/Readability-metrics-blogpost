@@ -1,7 +1,7 @@
 #%%
 import re
 import numpy
-from word import Word
+from dependencies.word import Word
 import spacy
 from spacy.cli import download
 

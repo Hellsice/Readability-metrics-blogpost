@@ -1,9 +1,9 @@
 import logging
 
-import letter_dictionaries
-from syllable import Syllable
-from phonetic_code.start_pronunciations import StartPronunciations
-from phonetic_code.end_pronunciations import EndPronunciations
+from .. import letter_dictionaries
+from ..syllable import Syllable
+from ..phonetic_code.start_pronunciations import StartPronunciations
+from ..phonetic_code.end_pronunciations import EndPronunciations
 
 
 def find_start_con_pronunciation(syllable):
