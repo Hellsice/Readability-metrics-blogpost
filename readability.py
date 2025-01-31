@@ -1,13 +1,11 @@
 #%%
 import re
-import numpy
 from dependencies.word import Word
 import spacy
 from spacy.cli import download
 
 
 # download('nl_core_news_sm')
-import re
 alphabets= "([A-Za-z])"
 prefixes = "(Dhr|Mevr|Dr|Prof)[.]"
 suffixes = "(B.V|N.V|Jr|Sr|Co)"
@@ -82,7 +80,6 @@ def lix(text):
     total_sentences = len(sentences)
     long_words = sum(1 for word in words if len(word) > 6)
 
-    # Calculate LIX
     lix_score = (total_words / total_sentences) + (100 * long_words / total_words) if total_words > 0 and total_sentences > 0 else 0
     lix_score = max(20, lix_score)
     lix_score = min(60, lix_score)
@@ -98,7 +95,7 @@ def flesch_douma(text):
     avg_sentence_length = len(words)/len(sentences) if sentences else 0
     avg_syl = syllable_count/len(words) if words else 0
 
-    score = 206.835 - (1.015 * avg_sentence_length) - (84.6 * avg_syl)
+    score = 206.835 - (0.93 * avg_sentence_length) - (77 * avg_syl)
     score = max(0, score)
     score = min(100, score)
     return score
